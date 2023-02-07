@@ -347,6 +347,16 @@ class ViewToolbar(Gtk.Toolbar):
         self.insert(self._zoom_to_width, -1)
         self._zoom_to_width.show()
 
+        color = ColorToolButton()
+        color.connect('notify::color', self._text_color_cb,
+                      abiword_canvas)
+        tool_item = Gtk.ToolItem()
+        tool_item.add(color)
+        self.insert(tool_item, -1)
+        abiword_canvas.connect(
+            'color', lambda abi, r, g, b:
+            color.set_color(Gdk.Color(r * 256, g * 256, b * 256)))
+
         # TODO: fix the initial value
         self._zoom_spin_adj = Gtk.Adjustment(0, 25, 400, 25, 50, 0)
         self._zoom_spin = Gtk.SpinButton.new(self._zoom_spin_adj, 0, 0)
