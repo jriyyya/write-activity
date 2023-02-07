@@ -530,7 +530,7 @@ class TextToolbar(Gtk.Toolbar):
         self.insert(tool_item, -1)
         abiword_canvas.connect(
             'color', lambda abi, r, g, b:
-            color.set_color(Gdk.Color(r * 22, g * 256, b * 256)))
+            color.set_color(Gdk.Color(r * 256, g * 256, b * 256)))
 
         # MAGIC NUMBER WARNING: Secondary toolbars are not a standard height?
         self.set_size_request(-1, style.GRID_CELL_SIZE)

@@ -93,7 +93,7 @@ class GridCreateWidget(Gtk.DrawingArea):
         cr.rectangle(0, 0, self._width, self._height)
         cr.fill()
         # used area
-        cr.set_source_rgba(*style.COLOR_HIGHLIGHT.get_rgba())
+        cr.set_source_rgba(*style.COLOR_BLACK.get_rgba())
         width = self._columns * self._cell_width
         height = self._rows * self._cell_height
         cr.rectangle(0, 0, width, height)
