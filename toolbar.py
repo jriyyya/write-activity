@@ -348,7 +348,7 @@ class ViewToolbar(Gtk.Toolbar):
         self._zoom_to_width.show()
 
         self.color = ColorToolButton()
-        self.color.connect('clicked', self._zoom_to_width_cb)
+        self.color.connect('notify::color', self._zoom_to_width_cb)
         self.insert(self.color, -1)
         self.color.show()
 
